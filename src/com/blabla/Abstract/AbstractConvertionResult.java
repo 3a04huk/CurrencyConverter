@@ -9,7 +9,7 @@ public abstract class AbstractConvertionResult {
     protected double inputAmount;
     protected String operationResult;
     protected String errorMessage;
-    String operationResultString;
+    private String operationResultString;
 
     protected String getOperationResultString() {
         operationResultString="Не известно";
@@ -30,6 +30,6 @@ public abstract class AbstractConvertionResult {
     @Override
     public String toString() {
         return String.format("Операция выполнена: %S\nИсходная валюта %S\nПолучено: %.2f %s\nВалюта %S\nВыдано %.2f %s\nКурс: 1 %s = %.2f %s"
-                , getOperationResultString(), rate.getFrom().getName(),inputAmount,rate.getFrom().getShortName(), rate.getTo().getName(),result,rate.getTo().getShortName(),rate.getFrom().getShortName(),rate.getRate(), rate.getTo().getShortName());
+                , getOperationResultString(), rate.getFrom().getName(),inputAmount,rate.getFrom().getShortName(), rate.getTo().getName(),result,rate.getTo().getShortName(),rate.getTo().getShortName(),rate.getRate(), rate.getFrom().getShortName());
     }
 }

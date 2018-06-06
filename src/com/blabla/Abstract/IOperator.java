@@ -5,4 +5,5 @@ package com.blabla.Abstract;
  */
 public interface IOperator {
     AbstractConvertionRequest createConvertionRequest(IClient client,AbstractCurrency currencyFrom, double amount, AbstractCurrency currencyTo, AbstractRate rate);
+    AbstractConvertionResult doOperation(AbstractConvertionRequest request);
 }
