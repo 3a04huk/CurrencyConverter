@@ -1,11 +1,11 @@
 package com.blabla;
 
-import com.blabla.Abstract.AbstractCurrency;
+import com.blabla.Abstract.CurrencyAbstract;
 
 /**
  * Created by user on 06.06.2018.
  */
-public class Currency extends AbstractCurrency {
+public class Currency extends CurrencyAbstract {
     public Currency(String id){
         this.id=id;
     }

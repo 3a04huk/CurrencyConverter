@@ -1,23 +1,23 @@
 package com.blabla.Abstract;
 
 /**
- * Created by user on 06.06.2018.
+ * Абстрактный. Курс вылюты.
  */
-public abstract class AbstractRate {
-    protected AbstractCurrency from;
-    protected AbstractCurrency to;
+public abstract class RateAbstract {
+    protected CurrencyAbstract from;
+    protected CurrencyAbstract to;
     protected double rate;
 
     public double getRate() {
         return rate;
     }
 
-    public AbstractCurrency getTo() {
+    public CurrencyAbstract getTo() {
         return to;
 
     }
 
-    public AbstractCurrency getFrom() {
+    public CurrencyAbstract getFrom() {
         return from;
     }
 

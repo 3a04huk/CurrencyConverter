@@ -1,29 +1,30 @@
 package com.blabla;
 
-import com.blabla.Abstract.AbstractConvertionResult;
-import com.blabla.Abstract.AbstractRate;
+import com.blabla.Abstract.ConversionResultAbstract;
+import com.blabla.Abstract.RateAbstract;
+import com.blabla.enums.OperationResultEnum;
 
 /**
  * Created by user on 06.06.2018.
  */
-public class ConvertionResult extends AbstractConvertionResult {
+public class ConversionResult extends ConversionResultAbstract {
 /*
     protected double result;
-    protected AbstractRate rate;
+    protected RateAbstract rate;
     protected double inputAmount;
     protected String operationResult;
     protected String errorMessage;
      */
     public void setSuccess(){
-        operationResult="SUCCESS";
+        operationResult= OperationResultEnum.SUCCESS;
     }
 
     public void setError(String errorMessage){
-        this.operationResult="ERROR";
+        this.operationResult=OperationResultEnum.ERROR;
         this.errorMessage=errorMessage;
     }
 
-    public ConvertionResult(double result, AbstractRate rate, double inputAmount){
+    public ConversionResult(double result, RateAbstract rate, double inputAmount){
         this.result=result;
         this.rate=rate;
         this.inputAmount=inputAmount;
@@ -31,7 +32,7 @@ public class ConvertionResult extends AbstractConvertionResult {
 
     @Override
     public String toString() {
-        if(operationResult=="ERROR") {
+        if(operationResult==OperationResultEnum.ERROR) {
             return String.format("Результат: %S\nСообщение: %S",
                     getOperationResultString(), errorMessage);
         } else {

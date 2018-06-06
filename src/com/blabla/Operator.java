@@ -1,39 +1,47 @@
 package com.blabla;
 
 import com.blabla.Abstract.*;
+import com.blabla.enums.OperationResultEnum;
 
-import java.time.Year;
 import java.util.Date;
 
 /**
  * Created by user on 06.06.2018.
  */
 public class Operator implements IOperator {
-    private IRateService service;
     private IConverter converter;
 
-    Operator(IRateService service, IConverter converter){
-        this.service=service;
+    Operator(IConverter converter){
         this.converter=converter;
     }
 
     @Override
-    public AbstractConvertionRequest createConvertionRequest(IClient client, AbstractCurrency currencyFrom, double amount, AbstractCurrency currencyTo, AbstractRate rate) {
-        if (check(client) && amount>0) {
-            ConvertionRequest cr=new ConvertionRequest();
-            cr.setFrom(currencyFrom);
-            cr.setTo(currencyTo);
-            cr.setAmount(amount);
-            cr.setRate(rate);
-            return cr;
+    public ConversionRequestAbstract createConversionRequest(IClient client, CurrencyAbstract currencyFrom, double amount, CurrencyAbstract currencyTo) {
+        ConversionRequest cr=new ConversionRequest();
+        cr.setFrom(currencyFrom);
+        cr.setTo(currencyTo);
+        cr.setAmount(amount);
+        if (!check(client)) {
+            cr.setOperationResult(OperationResultEnum.ERROR, "ДУЛ не подошел :)");
         } else {
-            return null;
+            if (amount<=0) {
+                cr.setOperationResult(OperationResultEnum.ERROR, "Сумма меньше 0");
+            } else {
+                cr.setOperationResult(OperationResultEnum.SUCCESS, "");
+            }
         }
+        return cr;
     }
 
     @Override
-    public AbstractConvertionResult doOperation(AbstractConvertionRequest request) {
-        return converter.convert(request.getAmount(),request.getFrom().getId(),request.getTo().getId());
+    public ConversionResultAbstract doOperation(ConversionRequestAbstract request) {
+        if (request.getOperationResult()==OperationResultEnum.ERROR){
+            ConversionResult cr=new ConversionResult(0,new Rate(request.getFrom(),request.getTo(),0),request.getAmount());
+            cr.setError(request.getErrorMessage());
+            return cr;
+        } else {
+            return converter.convert(request.getAmount(), request.getFrom().getId(), request.getTo().getId());
+        }
     }
 
     private boolean check(IClient client) {

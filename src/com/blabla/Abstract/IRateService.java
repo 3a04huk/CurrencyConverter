@@ -3,12 +3,12 @@ package com.blabla.Abstract;
 import java.util.ArrayList;
 
 /**
- * Created by user on 06.06.2018.
+ * Интерфейс. Функционал источник курсов
  */
 public interface IRateService {
-    void add(AbstractRate rate);
-    void update(AbstractRate rate);
-    void delete(AbstractRate rate);
-    ArrayList<AbstractRate> getRates();
-    AbstractRate getRateById(String idFrom, String idTo);
+    void add(RateAbstract rate);
+    void update(RateAbstract rate);
+    void delete(RateAbstract rate);
+    ArrayList<RateAbstract> getRates();
+    RateAbstract getRateById(String idFrom, String idTo);
 }

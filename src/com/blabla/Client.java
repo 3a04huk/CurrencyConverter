@@ -1,6 +1,6 @@
 package com.blabla;
 
-import com.blabla.Abstract.AbstractDUL;
+import com.blabla.Abstract.DULAbstract;
 import com.blabla.Abstract.IClient;
 
 /**
@@ -14,7 +14,7 @@ public class Client implements IClient {
     }
 
     @Override
-    public AbstractDUL getDul() {
+    public DULAbstract getDul() {
         return dul;
     }
 }

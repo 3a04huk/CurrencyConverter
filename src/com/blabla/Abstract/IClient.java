@@ -1,8 +1,12 @@
 package com.blabla.Abstract;
 
 /**
- * Created by user on 06.06.2018.
+ * Интерфейс. Фунскционад клиента
  */
 public interface IClient {
-    AbstractDUL getDul();
+    /**
+     * Получить ДУЛ у клиента
+     * @return DULAbstract
+     */
+    DULAbstract getDul();
 }

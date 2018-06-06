@@ -1,8 +1,15 @@
 package com.blabla.Abstract;
 
 /**
- * Created by user on 06.06.2018.
+ * Интерфейс. Функционал конвертера
  */
 public interface IConverter {
-    AbstractConvertionResult convert(double amount, String currencyFrom, String currencyTo);
+    /**
+     * Конвертация
+     * @param amount
+     * @param currencyFrom
+     * @param currencyTo
+     * @return
+     */
+    ConversionResultAbstract convert(double amount, String currencyFrom, String currencyTo);
 }

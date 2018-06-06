@@ -1,9 +1,17 @@
 package com.blabla.Abstract;
 
 /**
- * Created by user on 06.06.2018.
+ * Интерфейс. Функционал оператора
  */
 public interface IOperator {
-    AbstractConvertionRequest createConvertionRequest(IClient client,AbstractCurrency currencyFrom, double amount, AbstractCurrency currencyTo, AbstractRate rate);
-    AbstractConvertionResult doOperation(AbstractConvertionRequest request);
+    /**
+     * Формирует запрос на конвертацию
+     * @param client
+     * @param currencyFrom
+     * @param amount
+     * @param currencyTo
+     * @return
+     */
+    ConversionRequestAbstract createConversionRequest(IClient client, CurrencyAbstract currencyFrom, double amount, CurrencyAbstract currencyTo);
+    ConversionResultAbstract doOperation(ConversionRequestAbstract request);
 }

@@ -3,9 +3,9 @@ package com.blabla.Abstract;
 import java.util.Date;
 
 /**
- * Created by user on 06.06.2018.
+ * Абстрактый. Документ, удостоверяющий личность
  */
-public class AbstractDUL {
+public class DULAbstract {
     public Date getBirthday() {
         return birthday;
     }

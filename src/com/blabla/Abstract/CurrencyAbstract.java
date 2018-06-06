@@ -1,9 +1,9 @@
 package com.blabla.Abstract;
 
 /**
- * Created by user on 06.06.2018.
+ * Абстрактный. Валюта
  */
-public abstract class AbstractCurrency {
+public abstract class CurrencyAbstract {
 
     protected String id;
     protected String shortName;

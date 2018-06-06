@@ -1,23 +1,25 @@
 package com.blabla.Abstract;
 
+import com.blabla.enums.OperationResultEnum;
+
 /**
- * Created by user on 06.06.2018.
+ * Абстрактный. Результат конверсии
  */
-public abstract class AbstractConvertionResult {
+public abstract class ConversionResultAbstract {
     protected double result;
-    protected AbstractRate rate;
+    protected RateAbstract rate;
     protected double inputAmount;
-    protected String operationResult;
+    protected OperationResultEnum operationResult;
     protected String errorMessage;
     private String operationResultString;
 
     protected String getOperationResultString() {
         operationResultString="Не известно";
         switch (operationResult){
-            case "SUCCESS":
+            case SUCCESS:
                 operationResultString="Успешно";
                 break;
-            case "ERROR":
+            case ERROR:
                 operationResultString="Неуспешно";
                 break;
         }
